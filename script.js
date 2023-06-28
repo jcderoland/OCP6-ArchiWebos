@@ -1,31 +1,85 @@
-(async () => {
+// Declaration of the projectsList variable outside the function
+let projectsList;
+let sectionGallery;
+
+// DEFINITION UPDATE GALLERY FUNCTION
+async function updateGallery() {
   const response = await fetch("http://localhost:5678/api/works");
-  const projectsList = await response.json();
-  console.log(projectsList);
+  projectsList = await response.json();
 
-  // Récupération de l'élément du DOM qui accueillera les projets
-  const sectionGallery = document.querySelector(".gallery");
+  // Retrieving the DOM element that will host the projects
+  sectionGallery = document.querySelector(".gallery");
 
-  // Vider la galerie en supprimant tous les éléments enfants
+  // Clear the gallery by removing all child elements
   sectionGallery.innerHTML = "";
 
   for (let i = 0; i < projectsList.length; i++) {
     const project = projectsList[i];
 
-    // Création d’une balise dédiée à un projet
+    // Creating a tag dedicated to a project
     const projectElement = document.createElement("article");
 
-    // Création des balises
+    // Creating tags
     const imageProject = document.createElement("img");
     imageProject.src = project.imageUrl;
-    const titleElement = document.createElement("p");
+    const titleElement = document.createElement("h1");
     titleElement.innerText = project.title;
 
-    // On rattache la balise article a la section Gallery
+    // Attaching the article tag to the Gallery section
     sectionGallery.appendChild(projectElement);
 
-    // On rattache l’image à projectElement (la balise article)
+    // Attaching the image to projectElement (the article tag)
     projectElement.appendChild(imageProject);
     projectElement.appendChild(titleElement);
   }
-})();
+}
+
+// Initial call to the updateGallery function to load the projects
+updateGallery();
+
+// DEFINITION FILTER BUTTONS
+// Filter All
+const filtrerTous = document.querySelector(".filter-tous");
+filtrerTous.addEventListener("click", function () {
+  const sectionGallery = document.querySelector(".gallery");
+  sectionGallery.innerHTML = "";
+  updateGallery();
+});
+
+// Filter Objets
+const filtrerObjets = document.querySelector(".filter-objets");
+filtrerObjets.addEventListener("click", function () {
+  const sectionGallery = document.querySelector(".gallery");
+  sectionGallery.innerHTML = "";
+
+  const projetsFiltres = projectsList.filter(function (project) {
+    return project.category.name === "Objets";
+  });
+  updateGallery(projetsFiltres);
+});
+
+// Filter Appartements
+const filtrerAppartements = document.querySelector(".filter-appartements");
+filtrerAppartements.addEventListener("click", function () {
+  const sectionGallery = document.querySelector(".gallery");
+  sectionGallery.innerHTML = "";
+
+  const projetsFiltres = projectsList.filter(function (project) {
+    return project.category.name === "Appartements";
+  });
+  updateGallery(projetsFiltres);
+});
+
+// Filter Hôtels & restaurants
+const filtrerHotelRestaurants = document.querySelector(
+  ".filter-hotel-restaurants"
+);
+filtrerHotelRestaurants.addEventListener("click", function () {
+  const sectionGallery = document.querySelector(".gallery");
+  sectionGallery.innerHTML = "";
+
+  const projetsFiltres = projectsList.filter(function (project) {
+    return project.category.name === "Hotels & restaurants";
+  });
+  updateGallery(projetsFiltres);
+});
