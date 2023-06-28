@@ -1,20 +1,16 @@
 // Declaration of the projectsList variable outside the function
 let projectsList;
-let sectionGallery;
 
 // DEFINITION UPDATE GALLERY FUNCTION
-async function updateGallery() {
-  const response = await fetch("http://localhost:5678/api/works");
-  projectsList = await response.json();
-
+async function updateGallery(projects = projectsList) {
   // Retrieving the DOM element that will host the projects
-  sectionGallery = document.querySelector(".gallery");
+  const sectionGallery = document.querySelector(".gallery");
 
   // Clear the gallery by removing all child elements
   sectionGallery.innerHTML = "";
 
-  for (let i = 0; i < projectsList.length; i++) {
-    const project = projectsList[i];
+  for (let i = 0; i < projects.length; i++) {
+    const project = projects[i];
 
     // Creating a tag dedicated to a project
     const projectElement = document.createElement("article");
@@ -22,7 +18,7 @@ async function updateGallery() {
     // Creating tags
     const imageProject = document.createElement("img");
     imageProject.src = project.imageUrl;
-    const titleElement = document.createElement("h1");
+    const titleElement = document.createElement("p");
     titleElement.innerText = project.title;
 
     // Attaching the article tag to the Gallery section
@@ -35,23 +31,25 @@ async function updateGallery() {
 }
 
 // Initial call to the updateGallery function to load the projects
-updateGallery();
+async function fetchProjects() {
+  const response = await fetch("http://localhost:5678/api/works");
+  projectsList = await response.json();
+  updateGallery();
+}
 
-// DEFINITION FILTER BUTTONS
+fetchProjects();
+
+// FILTER BUTTONS
+
 // Filter All
 const filtrerTous = document.querySelector(".filter-tous");
 filtrerTous.addEventListener("click", function () {
-  const sectionGallery = document.querySelector(".gallery");
-  sectionGallery.innerHTML = "";
   updateGallery();
 });
 
 // Filter Objets
 const filtrerObjets = document.querySelector(".filter-objets");
 filtrerObjets.addEventListener("click", function () {
-  const sectionGallery = document.querySelector(".gallery");
-  sectionGallery.innerHTML = "";
-
   const projetsFiltres = projectsList.filter(function (project) {
     return project.category.name === "Objets";
   });
