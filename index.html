@@ -11,12 +11,16 @@
       rel="stylesheet"
     />
     <meta name="description" content="" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
-    <script src="script.js" defer></script>
+    <script src="./services/script.js" defer></script>
   </head>
   <body>
     <header>
-      <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
         <ul>
           <li>projets</li>
@@ -52,6 +56,41 @@
       </section>
       <section id="portfolio">
         <h2>Mes Projets</h2>
+        <button id="editBtn">Modifier</button>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 class="modal-title">Galerie photo</h3>
+            <div id="modal-gallery"></div>
+            <div class="modal-subgallery">
+              <hr />
+              <button id="add-project-btn">Ajouter une photo</button>
+              <a href="">Supprimer la galerie</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="addPhotoPage" class="modal-page2">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 class="modal-title">Ajout photo</h3>
+            <input type="file" id="photoFileInput" accept="image/*" />
+            <p>Titre</p>
+            <input
+              type="text"
+              id="projectNameInput"
+              placeholder="Nom du projet"
+            />
+            <p>Catégorie</p>
+            <select id="categorySelect">
+              <option value="1">Objets</option>
+              <option value="2">Appartements</option>
+              <option value="3">Hotels & restaurants</option>
+            </select>
+            <input id="add-project-confirm" type="submit" value="Valider" />
+          </div>
+        </div>
+
         <div class="btn-filter">
           <button class="filter-tous">Tous</button>
           <button class="filter-objets">Objets</button>
@@ -135,7 +174,7 @@
           </figure>
         </div>
       </section>
-      <section id="contact">
+      <section class="contact">
         <h2>Contact</h2>
         <p>Vous avez un projet ? Discutons-en !</p>
         <form action="#" method="post">

@@ -223,33 +223,33 @@ li:hover {
 .gallery img {
   width: 100%;
 }
-#contact {
+.contact {
   width: 50%;
   margin: auto;
 }
-#contact > * {
+.contact > * {
   text-align: center;
 }
-#contact h2 {
+.contact h2 {
   margin-bottom: 20px;
 }
-#contact form {
+.contact form {
   text-align: left;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
 }
 
-#contact input {
+.contact input {
   height: 50px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+.contact label {
   margin: 2em 0 1em 0;
 }
-#contact textarea {
+.contact textarea {
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -270,3 +270,139 @@ footer nav ul {
   justify-content: flex-end;
   margin: 2em;
 }
+
+#forgot-password {
+  text-decoration: underline;
+}
+
+/* MODAL CREATION */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed position to overlay the rest of the content */
+  z-index: 1; /* Set modal to be on top of everything */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Allow scrolling if content exceeds modal height */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent background to darken the rest of the content */
+}
+
+.modal-page2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed position to overlay the rest of the content */
+  z-index: 1; /* Set modal to be on top of everything */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Allow scrolling if content exceeds modal height */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent background to darken the rest of the content */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* Center modal vertically and horizontally */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal-subgallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+}
+
+.modal-subgallery hr {
+  border-style: solid;
+  color: black;
+  width: 100%;
+}
+
+.modal-subgallery button {
+  width: 200px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  width: calc(20% - 20px);
+  margin: 10px;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card p {
+  margin: 10px 0;
+}
+
+.modal-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 2rem;
+}
+
+.fa-trash-can {
+  color: white;
+  background-color: black;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+/* .modal-page2 {
+  display: none;
+}
+
+.modal-page2 :active {
+  display: initial;
+} */
