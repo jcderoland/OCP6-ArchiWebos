@@ -23,18 +23,18 @@ window.addEventListener("click", function (event) {
   }
 });
 
-// Add the icon
+// Add the image icon
 let iconContainer = document.createElement("div");
-iconContainer.style = "height: 100px; width: 100px;"; // adjust this as needed
+iconContainer.style = "height: 100px; width: 100px;";
 let icon = document.createElement("i");
 icon.className = "fa-regular fa-image";
-icon.style = "font-size: 100px;"; // adjust this as needed
+icon.style = "font-size: 100px;";
 iconContainer.appendChild(icon);
 
-// Get the parent of the photo file input (i.e., the modal content div)
+// Get the parent of the photo file input
 let modalContent = photoFileInput.parentNode;
 
-// Insert the icon container before the photo file input
+// Insert icon container before the photo file input
 modalContent.insertBefore(iconContainer, photoFileInput);
 
 // Add event listener to the input
@@ -43,11 +43,11 @@ photoFileInput.addEventListener("change", (event) => {
   if (file) {
     let reader = new FileReader();
     reader.onloadend = () => {
-      // When the file is read, set it as the background of the icon
+      // When file is read, set it as background of the icon
       icon.style.backgroundImage = `url(${reader.result})`;
       icon.style.backgroundSize = "cover";
       icon.style.backgroundPosition = "center";
-      icon.textContent = ""; // remove the icon
+      icon.textContent = ""; // remove icon
     };
     reader.readAsDataURL(file);
   }
