@@ -406,3 +406,22 @@ footer nav ul {
 .modal-page2 :active {
   display: initial;
 } */
+
+.btn-filter button {
+  font-family: "Syne";
+  font-weight: 700;
+  color: #1d6154;
+  background-color: white;
+  padding: 0.7em;
+  text-align: center;
+  border-radius: 60px;
+}
+
+.btn-filter button:hover {
+  color: white;
+  background-color: #1d6154;
+}
+
+#editBtn {
+  display: none;
+}

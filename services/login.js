@@ -1,42 +1,63 @@
+// Fetch API URL
+const API_URL = "http://localhost:5678/api/users/login";
+
 function submitLoginForm() {
-  // Add event listener to the form submission event
-  const loginForm = document.querySelector("#login-form");
-  loginForm.addEventListener("submit", function (event) {
-    // Prevent page reload
+  const form = document.querySelector("#login-form");
+
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    // Get the values from the form fields
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;
 
-    // Prepare the request data as JSON
-    const requestData = { email, password };
-
-    // Perform the POST request using fetch
-    fetch("http://localhost:5678/api/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(requestData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Handle the response data
-        if (data.userId && data.token) {
-          // Store the authentication data in localStorage
-          localStorage.setItem("userId", data.userId);
-          localStorage.setItem("token", data.token);
-
-          // Redirect to another page
-          window.location.href = "index.html";
-        } else {
-          // Failed authentication
-          alert("Erreur dans l'identifiant ou le mot de passe");
-        }
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
       });
+
+      if (response.ok) {
+        const { userId, token } = await response.json();
+
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("token", token);
+        localStorage.setItem("isLoggedIn", "true"); // Changed here
+
+        window.location.href = "./index.html";
+      } else {
+        document.querySelector("#error-message").textContent =
+          "Failed to login.";
+      }
+    } catch (error) {
+      console.error("Error while logging in:", error);
+    }
   });
 }
 
-// Call the function to submit the login form
-submitLoginForm();
+if (document.querySelector("#login-form")) {
+  submitLoginForm();
+}
+
+// Function to hide filter buttons for logged in users
+document.addEventListener("DOMContentLoaded", function () {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  if (isLoggedIn === "true") {
+    const filterButtons = document.querySelector(".btn-filter");
+    filterButtons.style.display = "none";
+
+    const editButton = document.getElementById("editBtn");
+    editButton.style.display = "block";
+  }
+});
+
+// Function to logout
+document.getElementById("logoutButton").addEventListener("click", function () {
+  localStorage.removeItem("isLoggedIn");
+  window.location.href = "./login-page.html";
+  alert(
+    "Vous vous êtes déconnecté. Merci d'entrer votre login et mot de passe afin de vous reconnecter."
+  );
+});
