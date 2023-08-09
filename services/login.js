@@ -41,7 +41,7 @@ if (document.querySelector("#login-form")) {
   submitLoginForm();
 }
 
-// Function to hide filter buttons for logged in users
+// Hide filter buttons and show edit button for logged in users
 document.addEventListener("DOMContentLoaded", function () {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
   if (isLoggedIn === "true") {
@@ -50,6 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const editButton = document.getElementById("editBtn");
     editButton.style.display = "block";
+
+    const loginButton = document.getElementById("loginButton");
+    loginButton.style.display = "none";
+
+    const logoutButton = document.getElementById("logoutButton");
+    logoutButton.style.display = "block";
   }
 });
 

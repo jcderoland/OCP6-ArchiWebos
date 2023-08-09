@@ -23,7 +23,7 @@ window.addEventListener("click", function (event) {
   }
 });
 
-// Add the image icon
+// Add the icon for adding image
 let iconContainer = document.createElement("div");
 iconContainer.style = "height: 100px; width: 100px;";
 let icon = document.createElement("i");
@@ -44,10 +44,12 @@ photoFileInput.addEventListener("change", (event) => {
     let reader = new FileReader();
     reader.onloadend = () => {
       // When file is read, set it as background of the icon
-      icon.style.backgroundImage = `url(${reader.result})`;
-      icon.style.backgroundSize = "cover";
+      iconContainer.style.backgroundImage = `url(${reader.result})`;
+      iconContainer.style.backgroundSize = "contain";
+      iconContainer.style.backgroundRepeat = "no-repeat";
+      iconContainer.style.backgroundPosition = "center";
       icon.style.backgroundPosition = "center";
-      icon.textContent = ""; // remove icon
+      icon.style.display = "none";
     };
     reader.readAsDataURL(file);
   }

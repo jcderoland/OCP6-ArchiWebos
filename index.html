@@ -30,12 +30,8 @@
         <ul>
           <li><a href="index.html">projets</a></li>
           <li>contact</li>
-          <li><a href="login-page.html">login</a></li>
-          <li>
-            <button id="logoutButton">
-              <i class="fa-solid fa-right-from-bracket"></i>
-            </button>
-          </li>
+          <li><a href="login-page.html" id="loginButton">login</a></li>
+          <li><a href="#" id="logoutButton">logout</a></li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -65,8 +61,12 @@
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
-        <button id="editBtn">Modifier</button>
+        <div class="project-header">
+          <h2>Mes Projets</h2>
+          <button id="editBtn">
+            <i class="fa-regular fa-pen-to-square"></i> modifier
+          </button>
+        </div>
         <div id="modal" class="modal">
           <div class="modal-content">
             <span class="close">&times;</span>
@@ -75,7 +75,7 @@
             <div class="modal-subgallery">
               <hr />
               <button id="add-project-btn">Ajouter une photo</button>
-              <a href="">Supprimer la galerie</a>
+              <a href="" id="del-gallery">Supprimer la galerie</a>
             </div>
           </div>
         </div>

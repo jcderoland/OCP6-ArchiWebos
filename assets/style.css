@@ -164,6 +164,7 @@ h2 {
   font-size: 30px;
   color: #1d6154;
 }
+
 nav ul {
   display: flex;
   align-items: center;
@@ -278,45 +279,35 @@ footer nav ul {
 /* MODAL CREATION */
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed position to overlay the rest of the content */
-  z-index: 1; /* Set modal to be on top of everything */
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* Allow scrolling if content exceeds modal height */
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Semi-transparent background to darken the rest of the content */
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-page2 {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed position to overlay the rest of the content */
-  z-index: 1; /* Set modal to be on top of everything */
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* Allow scrolling if content exceeds modal height */
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Semi-transparent background to darken the rest of the content */
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* Center modal vertically and horizontally */
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 50%;
 }
 
 .close {
@@ -333,9 +324,15 @@ footer nav ul {
   cursor: pointer;
 }
 
+.modal-title {
+  text-align: center;
+  padding: 30px;
+}
+
 #modal-gallery {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
 }
 
@@ -358,13 +355,8 @@ footer nav ul {
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin: 10px;
-  width: calc(20% - 20px);
-  margin: 10px;
+  flex: 0 1 calc(18% - 10px);
+  margin: 5px;
   position: relative;
 }
 
@@ -378,11 +370,11 @@ footer nav ul {
 }
 
 .modal-content {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
 }
 
 .modal-title {
@@ -397,6 +389,17 @@ footer nav ul {
   position: absolute;
   top: 5px;
   right: 5px;
+}
+
+#add-project-btn {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1d6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
 }
 
 /* .modal-page2 {
@@ -424,4 +427,42 @@ footer nav ul {
 
 #editBtn {
   display: none;
+  font-family: "Syne";
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#del-gallery {
+  color: red;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-header h2 {
+  padding: 0;
+  margin-right: 20px;
+}
+
+#logoutButton {
+  display: none;
+  font-family: inherit;
+}
+
+.fa-image {
+  position: relative;
+  text-align: center;
 }
