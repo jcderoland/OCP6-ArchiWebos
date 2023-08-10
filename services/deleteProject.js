@@ -29,7 +29,6 @@ function deletePhoto(photoId, projectsList, updateGallery) {
     })
     .catch((error) => {
       console.error("Error while deleting the photo:", error);
-      // Consider adding user-friendly error notification here
     });
 }
 
