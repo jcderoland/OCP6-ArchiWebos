@@ -24,12 +24,12 @@ function submitLoginForm() {
 
         localStorage.setItem("userId", userId);
         localStorage.setItem("token", token);
-        localStorage.setItem("isLoggedIn", "true"); // Changed here
+        localStorage.setItem("isLoggedIn", "true");
 
         window.location.href = "./index.html";
       } else {
         document.querySelector("#error-message").textContent =
-          "Failed to login.";
+          "Login ou mot de passe incorrect";
       }
     } catch (error) {
       console.error("Error while logging in:", error);
