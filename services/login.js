@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     filterButtons.style.display = "none";
 
     const editButton = document.getElementById("editBtn");
-    editButton.style.display = "block";
+    editButton.style.display = "flex";
 
     const loginButton = document.getElementById("loginButton");
     loginButton.style.display = "none";

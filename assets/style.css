@@ -433,7 +433,6 @@ footer nav ul {
   cursor: pointer;
   color: inherit;
   margin-bottom: 30px;
-  display: flex;
   align-items: center;
 }
 
@@ -462,7 +461,44 @@ a {
   font-family: inherit;
 }
 
-.fa-image {
-  position: relative;
-  text-align: center;
+#addPhotoPage .modal-content {
+  line-height: 35px;
+}
+
+#addPhotoPage .fa-image {
+  color: #b9c5cc;
+}
+
+#icon-and-photo-input {
+  background-color: #e8f1f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.custom-file-upload span {
+  display: inline;
+  padding: 5px 20px;
+  cursor: pointer;
+  background-color: #cbd6dc;
+  border-radius: 20px;
+  color: #306685;
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+#btn-valider {
+  display: flex;
+  justify-content: center;
 }

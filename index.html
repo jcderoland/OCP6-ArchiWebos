@@ -84,7 +84,13 @@
           <div class="modal-content">
             <span class="close">&times;</span>
             <h3 class="modal-title">Ajout photo</h3>
-            <input type="file" id="photoFileInput" accept="image/*" />
+            <div id="icon-and-photo-input">
+              <label for="photoFileInput" class="custom-file-upload">
+                <input type="file" id="photoFileInput" accept="image/*" />
+                <span>+ Ajouter photo</span>
+              </label>
+              <p>jpg, png: 4mo max</p>
+            </div>
             <p>Titre</p>
             <input
               type="text"
@@ -97,7 +103,10 @@
               <option value="2">Appartements</option>
               <option value="3">Hotels & restaurants</option>
             </select>
-            <input id="add-project-confirm" type="submit" value="Valider" />
+            <hr />
+            <div id="btn-valider">
+              <input id="add-project-confirm" type="submit" value="Valider" />
+            </div>
           </div>
         </div>
 
