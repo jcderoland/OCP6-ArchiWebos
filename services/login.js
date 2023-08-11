@@ -51,6 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const editButton = document.getElementById("editBtn");
     editButton.style.display = "flex";
 
+    const editButton2 = document.getElementById("editBtn2");
+    editButton2.style.display = "block";
+
     const loginButton = document.getElementById("loginButton");
     loginButton.style.display = "none";
 

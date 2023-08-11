@@ -3,6 +3,7 @@ import { deletePhoto } from "./deleteProject.js";
 
 const modal = document.getElementById("modal");
 const editBtn = document.getElementById("editBtn");
+const editBtn2 = document.getElementById("editBtn2");
 const closeBtn = document.getElementsByClassName("close")[0];
 const addProjectBtn = document.getElementById("add-project-btn");
 const modal2 = document.getElementById("addPhotoPage");
@@ -10,6 +11,10 @@ const closeBtn2 = document.getElementsByClassName("close")[1];
 const photoFileInput = document.querySelector("#photoFileInput");
 
 editBtn.addEventListener("click", function () {
+  modal.style.display = "block";
+});
+
+editBtn2.addEventListener("click", function () {
   modal.style.display = "block";
 });
 
