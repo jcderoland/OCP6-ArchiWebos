@@ -524,3 +524,39 @@ a {
 #editBtn2 {
   padding-left: 10%;
 }
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.top-bar i {
+  margin-right: 10px;
+}
+
+.publish-button {
+  margin-left: 20px;
+  background-color: white;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+}
+
+.publish-button:hover {
+  background-color: #f7f7f7;
+}
+
+.publish-button:focus {
+  outline: none;
+}
