@@ -10,7 +10,7 @@ const photoFileInput = document.querySelector("#photoFileInput");
 const projectNameInput = document.querySelector("#projectNameInput");
 const categorySelect = document.querySelector("#categorySelect");
 
-submitPhotoBtn.addEventListener("click", function (event) {
+function submitProject(event) {
   event.preventDefault();
 
   // Get form data
@@ -49,4 +49,9 @@ submitPhotoBtn.addEventListener("click", function (event) {
     .catch((error) => {
       console.error("Erreur lors de l'ajout de la photo:", error);
     });
-});
+}
+
+submitPhotoBtn.addEventListener("click", submitProject);
+
+const publishModal2 = document.getElementById("publish-modal2");
+publishModal2.addEventListener("click", submitProject);

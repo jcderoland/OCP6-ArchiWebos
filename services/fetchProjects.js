@@ -32,3 +32,11 @@ export async function fetchProjects() {
 }
 
 fetchProjects();
+
+const publishModal1 = document.getElementById("publish-modal1");
+const modal = document.getElementById("modal"); // Reference to the first modal
+
+publishModal1.addEventListener("click", function () {
+  updateGallery();
+  modal.style.display = "none"; // This will close the modal
+});
